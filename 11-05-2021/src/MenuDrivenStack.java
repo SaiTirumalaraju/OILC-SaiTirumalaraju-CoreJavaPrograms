@@ -33,12 +33,19 @@ public class MenuDrivenStack {
 		}
 	}
 
-	private static String display(int[] stack) {
+	private static String display(int[] stack) 
+	{
+		if(isEmpty()) {
+			res1 = "Stack is Empty";
+		}
+		else 
+		{
 		String res1 = "";
-		for (int i = 0; i <= top; i++) {
-			res1 += " " + stack[i];
+		for (int i = top; i >= 0; i--) {
+			res1 += stack[i] + "\n";
 		}
 		return res1;
+		}
 	}
 
 	private static String pop() {
