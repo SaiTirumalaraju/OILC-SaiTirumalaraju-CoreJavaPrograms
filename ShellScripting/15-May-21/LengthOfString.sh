@@ -1,6 +1,4 @@
 #!/bin/bash
-read -p "enter any string: " string
-
- 
+read -p "Enter any String: " string
 
 echo ${#string}

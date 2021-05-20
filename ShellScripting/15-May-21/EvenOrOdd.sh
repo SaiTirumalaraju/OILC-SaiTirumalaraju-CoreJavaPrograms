@@ -1,11 +1,11 @@
 #!/bin/bash
 
-echo -n "enter an Integer"
-read var
 
-if [ `expr $var % 2` == 0 ]
+read -p "Enter an Integer: " num
+
+if [ `expr $num % 2` == 0 ]
 then
-	echo "$var is Even"
+	echo "$num is Even"
 else
-	echo "$var is Odd"
+	echo "$num is Odd"
 fi

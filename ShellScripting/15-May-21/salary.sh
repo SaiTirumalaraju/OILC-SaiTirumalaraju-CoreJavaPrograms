@@ -1,19 +1,24 @@
 #!/bin/bash
-
+  
 echo "Enter basic Salary"
-read bs
+read Basic_Salary
 
-ta=`echo $bs \* 15 / 100 | bc`
-hra=`echo $bs \* 10 / 100 | bc`
-da=`echo $bs \* 2 / 100 | bc`
+Travel_Allowances=`expr $Basic_Salary \* 15 / 100`
+House_Rental_Allowances=`expr $Basic_Salary \* 10 / 100`
+Daily_Allowances=`expr $Basic_Salary \* 2 / 100`
 
-tax=`echo $bs \* 5 / 100 | bc`
-pf=`echo $bs \* 10 / 100 | bc`
+Allowances=`expr $Travel_Allowances + $House_Rental_Allowances + $Daily_Allowances`
+Gross_Salary=`expr $Basic_Salary + $Allowances`
 
-ad=`echo $ta + $hra + $da | bc`
-ded=`echo $tax + $pf | bc`
+ProvidentFund=`expr $Basic_Salary \* 10 / 100`
 
-Anualsal=`echo $bs + $ad - $ded | bc`
+Net_Salary=`expr $Gross_Salary  - $ProvidentFund`
 
-echo "Net Salary is $Anualsal"
+Tax=`expr $Net_Salary \* 5 / 100`
+
+echo "Net Salary is $Net_Salary"
+
+Take_Home_Salary=`expr $Net_Salary - $Tax`
+
+echo "TakeHome Salary is:" $Take_Home_Salary
 
